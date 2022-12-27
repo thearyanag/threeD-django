@@ -7,8 +7,14 @@ class Category(models.Model):
     CategoryId = models.AutoField(primary_key=True)
     CategoryName = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.CategoryName
+
 class ThreeDModel(models.Model):
     ThreeDId = models.AutoField(primary_key=True)
     ModelName = models.CharField(max_length=100)
     Category = models.CharField(max_length=100)
     ThreeDModelFileName = models.CharField(max_length=100)  
+
+    def __str__(self):
+        return self.ModelName
