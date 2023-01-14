@@ -1,13 +1,18 @@
 from dataclasses import fields
 from rest_framework import serializers
-from api.models import Category,ThreeDModel
+from api.models import Category,Assets,UserAssets
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('CategoryId' , 'CategoryName')
+        fields = ('CategoryId' , 'CategoryName' , 'CategoryDescription')
 
-class ThreeDModelSerializer(serializers.ModelSerializer):
+class AssetSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ThreeDModel
-        fields = ('ThreeDId' , 'ModelName' , 'Category' , 'ThreeDModelFileName')
+        model = Assets
+        fields = ('AssetId' , 'AssetName' , 'Category' , 'FileName')
+
+class UserAssetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserAssets
+        fields = ('UserAssetsId' , 'UserId' , 'AssetId')
